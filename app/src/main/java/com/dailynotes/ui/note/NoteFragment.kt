@@ -1,4 +1,4 @@
-package com.dailynotes.ui.gallery
+package com.dailynotes.ui.note
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dailynotes.databinding.FragmentGalleryBinding
+import com.dailynotes.databinding.FragmentNoteBinding
+import com.dailynotes.viewmodel.NoteViewModel
 
-class GalleryFragment : Fragment() {
+class NoteFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentNoteBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +23,14 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val noteViewModel =
+            ViewModelProvider(this).get(NoteViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentNoteBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textHome
+        noteViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
