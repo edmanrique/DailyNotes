@@ -8,7 +8,7 @@ import com.dailynotes.model.Note
 
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(){
     private var listaNotes = emptyList<Note>()
-
+    //Card
     inner class NoteViewHolder(private val itemBinding: NoteFilaBinding) :
         RecyclerView.ViewHolder(itemBinding.root){
         fun bind(note: Note){
