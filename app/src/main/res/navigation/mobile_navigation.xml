@@ -9,11 +9,15 @@
         android:id="@+id/nav_note"
         android:name="com.dailynotes.ui.note.NoteFragment"
         android:label="@string/menu_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_nav_note_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.dailynotes.ui.note.GalleryFragment"
+        android:name="com.dailynotes.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
@@ -22,4 +26,13 @@
         android:name="com.dailynotes.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.dailynotes.ui.note.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_nav_note"
+            app:destination="@id/nav_note" />
+    </fragment>
 </navigation>

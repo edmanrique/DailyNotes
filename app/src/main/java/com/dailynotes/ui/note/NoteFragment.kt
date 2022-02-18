@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.dailynotes.R
+import com.dailynotes.adapter.NoteAdapter
 import com.dailynotes.databinding.FragmentNoteBinding
 import com.dailynotes.viewmodel.NoteViewModel
 
 class NoteFragment : Fragment() {
 
+    private lateinit var noteViewModel: NoteViewModel
     private var _binding: FragmentNoteBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,17 +24,25 @@ class NoteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val noteViewModel =
-            ViewModelProvider(this).get(NoteViewModel::class.java)
-
+        noteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
         _binding = FragmentNoteBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        noteViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        binding.fbAgregar.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_note_to_addNoteFragment)
         }
-        return root
+
+        val noteAdapter = NoteAdapter()
+        val reciclador = binding.reciclador
+        reciclador.adapter = noteAdapter
+        reciclador.layoutManager = LinearLayoutManager(requireContext())
+
+        noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+
+        noteViewModel.getAllData.observe(viewLifecycleOwner) { notes ->
+            noteAdapter.setData(notes)
+        }
+
+        return binding.root
     }
 
     override fun onDestroyView() {

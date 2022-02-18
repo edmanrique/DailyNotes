@@ -13,4 +13,13 @@
     <string name="menu_note">Notas</string>
     <string name="menu_gallery">Galería</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="msg_fecha">Digite la fecha actual</string>
+    <string name="msg_imagen">Imagen del momento</string>
+    <string name="msg_bueno">¿Hoy fue un día bueno o malo?</string>
+    <string name="msg_descripcion">Redacte un resumen de su día</string>
+    <string name="bt_guardar">Guardar</string>
+    <string name="msg_agregado">Nota agregado</string>
 </resources>

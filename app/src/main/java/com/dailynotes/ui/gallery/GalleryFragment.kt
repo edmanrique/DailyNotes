@@ -1,4 +1,4 @@
-package com.dailynotes.ui.note
+package com.dailynotes.ui.gallery
 
 import android.os.Bundle
 import android.view.LayoutInflater

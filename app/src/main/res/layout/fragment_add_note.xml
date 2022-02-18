@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".AddNoteFragment" >
+
+    <EditText
+        android:id="@+id/et_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_fecha"
+        android:inputType="date"
+        tools:text="@string/msg_fecha" />
+
+    <EditText
+        android:id="@+id/et_bueno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_bueno"
+        android:inputType="textPersonName"
+        tools:text="@string/msg_bueno" />
+
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/msg_descripcion"
+        android:inputType="textMultiLine"
+        tools:text="@string/msg_descripcion" />
+
+    <Button
+        android:id="@+id/bt_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_guardar"
+        tools:text="@string/bt_guardar" />
+</LinearLayout>
